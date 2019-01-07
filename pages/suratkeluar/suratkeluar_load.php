@@ -45,7 +45,9 @@
                 </tfoot>
               </table>
               <script>
-			       $('#example1').DataTable();	
+			       $('#example1').DataTable({
+                "order": [[ 2, "desc" ]]
+             });	
             function pdfe(x,y){
                 //alert(x);
                 $.ajax({
