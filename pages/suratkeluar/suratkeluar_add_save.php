@@ -7,10 +7,11 @@
         //$kodeawal2 = 'EST_BR.';
         //$kodeawal = 'EST_BR.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_estimasi WHERE id_estimasi LIKE '$kodeawal2%' ORDER BY id_estimasi DESC";
-        $tahunnows = date('Y');
-        $kodeawal=$tahunnows;
-        $sqljur = "SELECT * FROM t_surat_keluar WHERE SUBSTRING(no_agenda,1,4)='$tahunnows' ORDER BY no_agenda DESC";
-        echo $sqljur;
+        //$tahunnows = date('Y');
+        $tahun = trim($_POST['tahun']);
+        $kodeawal=$tahun;
+        $sqljur = "SELECT * FROM t_surat_keluar WHERE SUBSTRING(no_surat,-4)='$tahun' ORDER BY no_agenda DESC";
+        //echo $sqljur;
         $resultjur = mysql_query($sqljur);
         $jur = mysql_fetch_array($resultjur);
         if (empty($jur['no_agenda'])){
@@ -40,7 +41,7 @@
 		$kdsurat = trim($_POST['kodesurat']);
 		$wilayah = trim($_POST['wilayah']);
 		$bulan = trim($_POST['bulan1']);
-		$tahun = trim($_POST['tahun']);
+		
         $tglsurat = trim($_POST['tglsurat']);
         $tujuan = trim($_POST['tujuan']);
         $perihal = $_POST['perihal'];
@@ -90,7 +91,7 @@
 		        }
 		        $sqltbemp = "INSERT INTO t_surat_keluar (no_agenda,no_surat,tujuan, tgl_surat,isi_ringkas,file, suratmasuk) VALUES ('$noagenda','$kodesurat','$tujuan','$tglsurat','$perihal','$photo','$suratmasuk')";
         			mysql_query($sqltbemp);
-        			echo $sqltbemp;
+        			//echo $sqltbemp;
         			$sqltbemp2 = "UPDATE t_surat_masuk SET dibales=0 WHERE no_agenda='$suratmasuk'";
         			mysql_query($sqltbemp2);
             echo 'n';
