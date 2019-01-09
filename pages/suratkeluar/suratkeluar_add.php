@@ -5,10 +5,10 @@
     # GENERATE KODE
 		//$kdtgl = date('Ymd');
 		//$kodeawal = 'SKL_';
+    	//$tahunnow = date('Y');
 		$sqljur = "SELECT * FROM t_surat_keluar ORDER BY no_agenda DESC";
    		$resultjur = mysql_query( $sqljur );
-	    $jur = mysql_fetch_array( $resultjur );		
-		
+	    $jur = mysql_fetch_array( $resultjur );	
 		$kodebaru = $jur['no_agenda']+1;
    ?>
     <style>      
@@ -55,7 +55,7 @@
 				              <div class="box-body" style="padding: 2px">
 
 				              	<table class="table" style="font-size: 12px;padding: 5px">
-
+				              		<!--
 				              	<tr>
 				              		<td style="padding: 8px;padding-right: 2px">
 				              			<div class="form-group" style="margin-bottom:1px">
@@ -75,7 +75,7 @@
 				              		</td>
 				              	
 				              	</tr>
-
+									-->
 				              	<tr>
 				              		<td style="padding: 8px;padding-right: 2px">
 				              			       <div class="form-group" style="margin-bottom:1px;padding-right: 0px;padding-right: 0px">
@@ -108,7 +108,7 @@
 													                  	/
 				                  </div>
 				                  <div class="col-sm-2" style="padding-right: 0px;padding-left: 0px;padding-right: 0px;padding-left: 0px;height: 34px;width: 40px;">
-				                    <select name="bulan" id="bulan" style="height: 34px;
+				                    <select name="bulan1" id="bulan1" style="height: 34px;
 ">
 				                    	  <option value="I">I</option>
 		                                  <option value="II">II</option>
@@ -368,7 +368,7 @@
                                                   success: function(data){                              
                                                         //alert('lolos');
                                                         var hsl=data.trim();
-                                                        //alert(hsl);
+                                                        alert(hsl);
                                                         if (hsl=='y'){
 			                                                alert('Nomor Agenda Sudah ada');  
 			                                                return false;

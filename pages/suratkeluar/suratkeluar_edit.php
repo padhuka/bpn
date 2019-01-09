@@ -67,8 +67,8 @@
 				              		<td style="padding: 8px;padding-right: 2px;">
 				                <div class="form-group" style="margin-bottom:1px;">
 				                  <label for="inputEmail3" class="col-sm-4 control-label" style="text-align: left;">No Agenda</label>
-				                  <div class="col-sm-2">
-				                    <input type="text" class="form-control" id="noagenda" name="noagenda" required value="<?php echo $emp['no_agenda'];?>">
+				                  <div class="col-sm-4">
+				                    <input type="text" class="form-control" id="noagenda" name="noagenda" required value="<?php echo $emp['no_agenda'];?>" readonly>
 				                  </div>
 				                </div>	
 				                	</td>
