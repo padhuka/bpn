@@ -5,7 +5,7 @@
 		//$kdtgl = date('Ymd');
 		//$kodeawal = 'SKL_';
     	//$tahunnow = date('Y');
-    $th='2018';
+    $th=$_GET['th'];
 		$sqljur = "SELECT *,substring(no_surat,-4) AS tahune FROM t_surat_keluar WHERE substring(no_surat,-4)='$th' ORDER BY no_agenda ASC";
    		$resultjur = mysql_query( $sqljur );
 	    //$jur = mysql_fetch_array( $resultjur );			
@@ -13,17 +13,16 @@
    ?>
 
    <table border="1">
-      <tr><td>Kode</td><td>Urut</td><td>Tahun</td><td>Tahune</td></tr>
+      <tr><td>Kode</td><td>Urut</td><td>Tahun</td></tr>
     <?php while($hjur=mysql_fetch_array($resultjur)){?>
       <tr>
           <td><?php $urut=$j++;echo $hjur['no_agenda'];?></td>
           <td><?php echo $urut;?></td>
-          <td><?php echo $hjur['tahune'];?></td>
           <td><?php echo $hjur['tahun'];?></td>
           <?php 
           
           mysql_query("update t_surat_keluar set kode='$urut' WHERE no_agenda='$hjur[no_agenda]'");
-          mysql_query("update t_surat_keluar set tahun='$hjur[tahune]'"); ?>
+          mysql_query("update t_surat_keluar set tahun='$th' WHERE no_agenda='$hjur[no_agenda]'"); ?>
       </tr>
     <? }?>
    </table>
