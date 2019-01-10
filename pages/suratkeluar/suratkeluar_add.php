@@ -367,7 +367,7 @@
                                                   success: function(data){                              
                                                         //alert('lolos');
                                                         var hsl=data.trim();
-                                                        alert(hsl);
+                                                        //alert(hsl);
                                                         if (hsl=='y'){
 			                                                alert('Nomor Agenda Sudah ada');  
 			                                                return false;
