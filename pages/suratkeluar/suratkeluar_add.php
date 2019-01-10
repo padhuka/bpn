@@ -6,10 +6,10 @@
 		//$kdtgl = date('Ymd');
 		//$kodeawal = 'SKL_';
     	//$tahunnow = date('Y');
-		$sqljur = "SELECT * FROM t_surat_keluar ORDER BY no_agenda DESC";
+		/*$sqljur = "SELECT * FROM t_surat_keluar ORDER BY no_agenda DESC";
    		$resultjur = mysql_query( $sqljur );
 	    $jur = mysql_fetch_array( $resultjur );	
-		$kodebaru = $jur['no_agenda']+1;
+		$kodebaru = $jur['no_agenda']+1;*/
    ?>
     <style>      
             .ui-autocomplete {
@@ -74,8 +74,7 @@
 				              			
 				              		</td>
 				              	
-				              	</tr>
-									-->
+				              	</tr>-->
 				              	<tr>
 				              		<td style="padding: 8px;padding-right: 2px">
 				              			       <div class="form-group" style="margin-bottom:1px;padding-right: 0px;padding-right: 0px">
@@ -147,7 +146,7 @@
                             </select>
 				                  </div>
 				                  	<div class="col-sm-3" style="padding-right: 0px;padding-left: 0px">
-				                    <input type="hidden" class="form-control" id="agenda" name="agenda" required value="<?php echo $kodebaru; ?>">
+				                    <input type="hidden" class="form-control" id="agenda" name="agenda" required value="<?php //echo $kodebaru; ?>">
 				                  	</div>
 				                  </div>
 				                </div>

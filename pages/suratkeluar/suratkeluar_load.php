@@ -22,7 +22,7 @@
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
-                          <td><?php echo $catat['no_agenda'];?></td>
+                          <td><?php echo $catat['tahun'];?>.<?php echo $catat['kode'];?></td>
                           <td><?php echo $catat['no_surat'];?></td>
                           <td><?php echo $catat['tgl_surat'];?></td>
                           <td><?php echo $catat['isi_ringkas'];?></td>
@@ -46,7 +46,7 @@
               </table>
               <script>
 			       $('#example1').DataTable({
-                "order": [[ 2, "desc" ]]
+                "order": 3,
              });	
             function pdfe(x,y){
                 //alert(x);
