@@ -73,7 +73,7 @@
 		        }
 		        $sqltbemp = "INSERT INTO t_surat_keluar (no_agenda,no_surat,tujuan, tgl_surat,isi_ringkas,file, suratmasuk,kode,tahun) VALUES ('$noagenda','$kodesurat','$tujuan','$tglsurat','$perihal','$photo','$suratmasuk','$kode','$tahun')";
         			mysql_query($sqltbemp);
-        			echo $sqltbemp;
+        			//echo $sqltbemp;
         			$sqltbemp2 = "UPDATE t_surat_masuk SET dibales=0 WHERE no_agenda='$suratmasuk'";
         			mysql_query($sqltbemp2);
             echo 'n';

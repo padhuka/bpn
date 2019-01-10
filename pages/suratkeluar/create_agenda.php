@@ -5,7 +5,8 @@
 		//$kdtgl = date('Ymd');
 		//$kodeawal = 'SKL_';
     	//$tahunnow = date('Y');
-		$sqljur = "SELECT *,substring(no_surat,-4) AS tahune FROM t_surat_keluar WHERE substring(no_surat,-4)='2018' ORDER BY no_agenda ASC";
+    $th='2018';
+		$sqljur = "SELECT *,substring(no_surat,-4) AS tahune FROM t_surat_keluar WHERE substring(no_surat,-4)='$th' ORDER BY no_agenda ASC";
    		$resultjur = mysql_query( $sqljur );
 	    //$jur = mysql_fetch_array( $resultjur );			
     $j=1;
