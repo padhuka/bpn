@@ -15,7 +15,7 @@
         $jur = mysql_fetch_array( $resultjur ); 
         $kodebaru = $jur['no_agenda']+1;
 
-        $sqljur2 = "SELECT * FROM t_surat_keluar substring(no_surat,-4)='$tahun' ORDER BY kode DESC";
+        $sqljur2 = "SELECT * FROM t_surat_keluar WHERE substring(no_surat,-4)='$tahun' ORDER BY kode DESC";
         $resultjur2 = mysql_query( $sqljur2 );
         $jur2 = mysql_fetch_array( $resultjur2 ); 
         $kode = $jur2['kode']+1;
