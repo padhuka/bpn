@@ -8,12 +8,14 @@
         //$kodeawal = 'EST_BR.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_estimasi WHERE id_estimasi LIKE '$kodeawal2%' ORDER BY id_estimasi DESC";
         //$tahunnows = date('Y');
-        $sqljur = "SELECT * FROM t_surat_keluar ORDER BY no_agenda DESC";
+        $tahun = trim($_POST['tahun']);
+
+        $sqljur = "SELECT * FROM t_surat_keluar WHERE substring(no_surat,-4)='$tahun' ORDER BY no_agenda DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur ); 
         $kodebaru = $jur['no_agenda']+1;
 
-        $sqljur2 = "SELECT * FROM t_surat_keluar ORDER BY kode DESC";
+        $sqljur2 = "SELECT * FROM t_surat_keluar substring(no_surat,-4)='$tahun' ORDER BY kode DESC";
         $resultjur2 = mysql_query( $sqljur2 );
         $jur2 = mysql_fetch_array( $resultjur2 ); 
         $kode = $jur2['kode']+1;
@@ -23,7 +25,7 @@
 		$kdsurat = trim($_POST['kodesurat']);
 		$wilayah = trim($_POST['wilayah']);
 		$bulan = trim($_POST['bulan1']);
-		$tahun = trim($_POST['tahun']);
+		
         $tglsurat = trim($_POST['tglsurat']);
         $tujuan = trim($_POST['tujuan']);
         $perihal = $_POST['perihal'];
