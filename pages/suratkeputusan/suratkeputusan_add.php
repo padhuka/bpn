@@ -1,11 +1,11 @@
 <!-- general form elements disabled -->
    <?php
     include_once '../../lib/config.php';
-    	$sqljur = "SELECT * FROM t_surat_keputusan ORDER BY no_agenda DESC";
+    	/*$sqljur = "SELECT * FROM t_surat_keputusan ORDER BY no_agenda DESC";
    		$resultjur = mysql_query( $sqljur );
 	    $jur = mysql_fetch_array( $resultjur );		
 		
-		$kodebaru = $jur['no_agenda']+1;
+		$kodebaru = $jur['no_agenda']+1;*/
    ?>
     <style>      
             .ui-autocomplete {
@@ -49,12 +49,12 @@
 				            <!-- form start -->
 				            <form class="form-horizontal" enctype="multipart/form-data" novalidate id="fupForm">
 				              <div class="box-body">
-				                <div class="form-group">
+				                <!--<div class="form-group">
 				                  <label for="inputEmail3" class="col-sm-4 control-label">No Agenda</label>
 				                  <div class="col-sm-8">
-				                    <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php echo $kodebaru;?>" required>
+				                    <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php //echo $kodebaru;?>" required>
 				                  </div>
-				                </div>				               
+				                </div>-->				               
 				                <div class="form-group">
 				                  <label for="inputEmail3" class="col-sm-4 control-label">Kode Surat</label>
 				                  <div class="col-sm-8">

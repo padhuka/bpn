@@ -2,8 +2,8 @@
         include_once '../../lib/config.php';
 		 //$ip = ; // Ambil IP Address dari User
     
-		$noagenda = trim($_POST['noagenda']);
-		$agenda = trim($_POST['agenda']);
+		//$noagenda = trim($_POST['noagenda']);
+		//$agenda = trim($_POST['agenda']);
 		$kdsurat = trim($_POST['kodesurat']);
 		$wilayah = trim($_POST['wilayah']);
 		$bulan = trim($_POST['bulan']);
@@ -23,7 +23,7 @@
         $noagendahid = trim($_POST['agendaold']);
         $filelama = trim($_POST['filescanold']);
 		 #cek idsurat
-        $sqlcek = "SELECT * FROM t_surat_keluar WHERE no_agenda='$noagenda' AND no_agenda<>'$noagendahid'";
+      /*  $sqlcek = "SELECT * FROM t_surat_keluar WHERE no_agenda='$noagenda' AND no_agenda<>'$noagendahid'";
         $qrycek = mysql_query($sqlcek);
         $row = mysql_fetch_array($qrycek);
 
@@ -31,7 +31,7 @@
             //echo 'var obat=new Array("'.$row[kode].'","'.$nama.'","'.$harga.'","'.$row[ukuran].'","'.$stkisi.'","'.$stk.'","'.$carabayar.'","'.$byre.'","'.$jl.'");';
             //unlink('../../file/tmp/'.$photo);
             echo 'y';
-        }else{
+        }else{*/
         	if(!empty($_FILES['filescan']['name'])){
 			    $uploadedFile = '';
 			        $fileName = $_FILES['filescan']['name'];
@@ -59,7 +59,7 @@
 		        }else{
 		            $photo=$filelama;
 		        }
-		        $sqltbemp = "UPDATE t_surat_keluar SET no_agenda='$noagenda',no_surat='$kodesurat',tujuan='$tujuan',isi_ringkas='$perihal',tgl_surat='$tglsurat',file='$photo',suratmasuk='$suratmasuk' WHERE id='$id'";
+		        $sqltbemp = "UPDATE t_surat_keluar SET no_agenda='$noagendahid',no_surat='$kodesurat',tujuan='$tujuan',isi_ringkas='$perihal',tgl_surat='$tglsurat',file='$photo',suratmasuk='$suratmasuk' WHERE id='$id'";
 		        
 		        //echo $sqltbemp;
 		        mysql_query($sqltbemp);
@@ -69,5 +69,5 @@
         			mysql_query($sqltbemp2);
 
 		            echo 'n';
-		        }
+		        //}
 ?>

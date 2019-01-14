@@ -20,7 +20,7 @@
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
-                          <td><?php echo $catat['no_agenda'];?></td>
+                          <td><?php echo substr($catat['tgl_surat'],0,4).'.'.$catat['urut'];?></td>
                           <td><?php echo $catat['kode'];?></td>
                           <td><?php echo $catat['tgl_surat'];?></td>
                           <td><?php echo $catat['tentang'];?></td>
@@ -39,7 +39,9 @@
               </table>
               <script>
 
-			       $('#example1').DataTable();
+			        $('#example1').DataTable({
+                "order": 3,
+             });  
 
             function pdfe(x,y){
               //alert(x+''+y);

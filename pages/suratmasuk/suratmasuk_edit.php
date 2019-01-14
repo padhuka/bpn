@@ -73,7 +73,7 @@
                         <div class="form-group" style="margin-bottom:1px">
                           <label for="inputEmail3" class="col-sm-4 control-label">No Agenda</label>
                           <div class="col-sm-8">
-                            <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php echo $emp['no_agenda'];?>" required>
+                            <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php echo substr($emp['tgl_surat'], 0,4).'.'.$emp['kode'];?>" required readonly>
                           </div>
                         </div>
                       </td>

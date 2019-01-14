@@ -1,11 +1,12 @@
 <!-- general form elements disabled -->
    <?php
     include_once '../../lib/config.php';
-    	$sqljur = "SELECT * FROM t_surat_masuk WHERE tahun='$tahunnow' ORDER BY no_agenda DESC";
+    	/*$sqljur = "SELECT * FROM t_surat_masuk WHERE tahun='$tahunnow' ORDER BY no_agenda DESC";
    		$resultjur = mysql_query( $sqljur );
 	    $jur = mysql_fetch_array( $resultjur );		
-		echo $sqljur;
-		$kodebaru = $jur['no_agenda']+1;
+		//echo $sqljur;
+		$kodebaru = $jur['no_agenda']+1;*/
+		echo substr('2018-12-12',0,4);
    ?>
     <style>      
             .ui-autocomplete {
@@ -54,14 +55,14 @@
 
 				           		<table class="table" style="font-size: 12px;padding: 5px;">
 				              	<tr>
-				              	<td style="padding: 8px;padding-right: 2px;text-align: left;"> 
+				              	<!--<td style="padding: 8px;padding-right: 2px;text-align: left;"> 
 				                <div class="form-group" style="margin-bottom:1px">
 				                  <label for="inputEmail3" class="col-sm-4 control-label">No Agenda</label>
 				                  <div class="col-sm-8">
-				                    <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php echo $kodebaru; ?>" required>
+				                    <input type="text" class="form-control" id="noagenda" name="noagenda" value="<?php //echo $kodebaru; ?>" required>
 				                  </div>
 				                </div>
-				                </td>
+				                </td>-->
 
 
 				                  <td style="padding: 8px;padding-right: 2px;text-align: left;">

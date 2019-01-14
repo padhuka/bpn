@@ -2,13 +2,26 @@
         include_once '../../lib/config.php';
 		 //$ip = ; // Ambil IP Address dari User
     
-		$noagenda = trim($_POST['noagenda']);
+		$tglsurat = trim($_POST['tglsurat']);
+        $tahun = substr($tglsurat, 0,4);
+
+        $sqljur = "SELECT * FROM t_surat_keputusan ORDER BY no_agenda DESC";
+        $resultjur = mysql_query( $sqljur );
+        $jur = mysql_fetch_array( $resultjur ); 
+        $kodebaru = $jur['no_agenda']+1;
+
+        $sqljur2 = "SELECT * FROM t_surat_keputusan WHERE substring(tgl_surat,1,4)='$tahun' ORDER BY urut DESC";
+        $resultjur2 = mysql_query( $sqljur2 );
+        $jur2 = mysql_fetch_array( $resultjur2 ); 
+        $kode = $jur2['urut']+1;
+
+		$noagenda = $kodebaru;
 		$kodesurat = trim($_POST['kodesurat']);
-        $tglsurat = trim($_POST['tglsurat']);
+        //$tglsurat = trim($_POST['tglsurat']);
         $perihal = $_POST['perihal'];
         $photo = $_POST['filescanhid'];
         
-		 #cek idsurat
+		/* #cek idsurat
         $sqlcek = "SELECT * FROM t_surat_keputusan WHERE no_agenda='$noagenda'";
         $qrycek = mysql_query($sqlcek);
         $row = mysql_fetch_array($qrycek);
@@ -17,7 +30,7 @@
             //echo 'var obat=new Array("'.$row[kode].'","'.$nama.'","'.$harga.'","'.$row[ukuran].'","'.$stkisi.'","'.$stk.'","'.$carabayar.'","'.$byre.'","'.$jl.'");';
             //unlink('../../file/tmp/'.$photo);
             echo 'y';
-        }else{
+        }else{*/
         	if(!empty($_FILES['filescan']['name'])){
 			    $uploadedFile = '';
 			        $fileName = $_FILES['filescan']['name'];
@@ -45,9 +58,9 @@
 		        }else{
 		            $photo="";
 		        }
-		        $sqltbemp = "INSERT INTO t_surat_keputusan (no_agenda,kode, tgl_surat,tentang,file) VALUES ('$noagenda','$kodesurat','$tglsurat','$perihal','$photo')";
+		        $sqltbemp = "INSERT INTO t_surat_keputusan (no_agenda,kode, tgl_surat,tentang,file,urut) VALUES ('$noagenda','$kodesurat','$tglsurat','$perihal','$photo','$kode')";
 
         			mysql_query($sqltbemp);
             echo 'n';
-        }
+        //}
 ?>

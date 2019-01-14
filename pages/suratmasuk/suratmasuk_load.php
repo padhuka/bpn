@@ -47,7 +47,7 @@
                                         }
                                 ?>                               
                         <tr style="<?php echo $stylee;?>">
-                          <td><?php echo $catat['no_agenda'];?> </td>
+                          <td><?php echo substr($catat['tgl_surat'],0,4);?>.<?php echo $catat['kode'];?></td>
                           <td><?php echo $pengirim;?></td>
                           <td><?php echo $catat['tgl_surat'];?></td>
                           <td><?php echo $catat['tgl_diterima'];?></td>
@@ -81,7 +81,9 @@
                             var w = window.open('../file/'+cel.innerHTML);
                         } */
         //$(document).ready(function(){
-            $('#example1').DataTable();
+            $('#example1').DataTable({
+                "order": 3,
+             });  
         //});
 
             $(".open_add").click(function (e){

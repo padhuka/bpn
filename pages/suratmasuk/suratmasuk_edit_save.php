@@ -3,7 +3,7 @@
         include_once '../../lib/fungsi.php';
 		 //$ip = ; // Ambil IP Address dari User
     
-		    $noagenda = trim($_POST['noagenda']);
+		    //$noagenda = trim($_POST['noagenda']);
 		    $nosurat = trim($_POST['nosurat']);
         $asalsurat = trim($_POST['asalsurathid']);
         $tglsurat = trim($_POST['tglsurat']);
@@ -23,7 +23,7 @@
 		 	$asalsurat=$asalsuratlama;
         }
 
-        $sqlcek = "SELECT * FROM t_surat_masuk WHERE no_agenda='$noagenda' AND no_agenda<>'$noagendahid'";
+        /*$sqlcek = "SELECT * FROM t_surat_masuk WHERE no_agenda='$noagenda' AND no_agenda<>'$noagendahid'";
         $qrycek = mysql_query($sqlcek);
         $row = mysql_fetch_array($qrycek);
 
@@ -31,7 +31,7 @@
             //echo 'var obat=new Array("'.$row[kode].'","'.$nama.'","'.$harga.'","'.$row[ukuran].'","'.$stkisi.'","'.$stk.'","'.$carabayar.'","'.$byre.'","'.$jl.'");';
             //unlink('../../file/tmp/'.$photo);
             echo 'y';
-        }else{
+        }else{*/
         	if(!empty($_FILES['filescan']['name'])){
 			    $uploadedFile = '';
 			        $fileName = $_FILES['filescan']['name'];
@@ -70,7 +70,7 @@
 		        $disp = explode(",", $disposisin);
 		        //$disp = array($disposisi);
 		            foreach ($disp as &$value) {
-		                    $sqldisp = "INSERT INTO t_disposisi (id_surat,kpd_yth,isi_disposisi) VALUES ('$noagenda','$value','$isi')";
+		                    $sqldisp = "INSERT INTO t_disposisi (id_surat,kpd_yth,isi_disposisi) VALUES ('$noagendahid','$value','$isi')";
 		                    mysql_query($sqldisp);
 		                    //echo $sqldisp;
 		            }
@@ -80,7 +80,7 @@
     //include_once '../../lib/config.php';
     //include_once '../../lib/fungsi.php';
     //$id = $_GET['id'];
-    $sqlemp = "SELECT * FROM t_surat_masuk WHERE no_agenda='$noagenda'";
+    $sqlemp = "SELECT * FROM t_surat_masuk WHERE no_agenda='$noagendahid'";
     $resemp = mysql_query( $sqlemp );
     $emp = mysql_fetch_array( $resemp );
     //load nama pengirim
@@ -154,6 +154,6 @@ ob_end_clean();
     }
 
        
-            echo 'n';
-        }
+           echo 'n';
+        //}*/
 ?>
